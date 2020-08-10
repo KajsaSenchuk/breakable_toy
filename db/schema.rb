@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_08_06_201604) do
   create_table "stores", force: :cascade do |t|
     t.string "name", null: false
     t.string "img_url", null: false
+    t.string "category", null: false
     t.string "description", null: false
     t.string "address"
     t.string "website_link"
