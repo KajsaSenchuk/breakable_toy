@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   
   get '/stores', to: 'homes#index'
   get '/stores/:id', to: 'homes#index'
+  get '/stores/:id/reviews', to: 'homes#index'
 
   namespace :api do
     namespace :v1 do
-      resources :stores, only: [ :index, :show ]
+      resources :stores, only: [ :index, :show ] do
+        resources :reviews, only: [:create]
+      end
     end
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
