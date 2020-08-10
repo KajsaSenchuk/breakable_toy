@@ -9,7 +9,7 @@ const StoresIndexTile = ({ id, name, img_url, category, description, address, we
       <p>{address}</p>
       <a href={website_link}>{website_link}</a>
       <br/>
-      <Link to={`/stores/${id}`}>Info and Reviews about {name}</Link>
+      <Link to={`/stores/${id}`}>Info and Reviews for {name}</Link>
     </div>
   );
 };
