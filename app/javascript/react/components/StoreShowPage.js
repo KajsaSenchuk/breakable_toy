@@ -18,7 +18,7 @@ const StoreShowPage = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        setStoreInfo(body);
+        setStoreInfo(body.store);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
@@ -27,8 +27,10 @@ const StoreShowPage = (props) => {
     <div>
       <StoreShowTile
         key={getStoreInfo.id}
+        id={getStoreInfo.id}
         name={getStoreInfo.name}
         img_url={getStoreInfo.img_url}
+        category={getStoreInfo.category}
         description={getStoreInfo.description}
         address={getStoreInfo.address}
         website_link={getStoreInfo.website_link}

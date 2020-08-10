@@ -4,6 +4,7 @@ import StoresIndexTile from "./StoresIndexTile"
 
 const StoresIndexPage = (props) => {
   const [getStores, setStores] = useState([]);
+
   useEffect(() => {
     fetch("/api/v1/stores")
       .then((response) => {
@@ -17,25 +18,28 @@ const StoresIndexPage = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        setStores(body);
+        setStores(body.stores);
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
-    
+  
   const listStores = getStores.map((store) => {
     return (
       <StoresIndexTile
         key={store.id}
-        name={store.name}
-        img_url={store.image_url}
         id={store.id}
+        name={store.name}
+        img_url={store.img_url}
+        category={store.category}
+        description={store.description}
+        address={store.address}
+        website_link={store.website_link}
       />
     );
   });
 
   return (
     <div>
-      <h3>Stores Index</h3>
       <ul>{listStores}</ul>
     </div>
   );
