@@ -4,16 +4,8 @@ import { Link } from "react-router-dom";
 const ReviewForm = (props) => {
   const [getReviewData, setReviewData] = useState({})
   const [getNotice, setNotice] = useState("")
-  const [getHoverRating, setHoverRating] = useState(undefined);
 
   let storeId = props.match.params.storeId
-
-  const handleStarChange = (value, ratingName) => {
-    setReviewData({
-      ...getReviewData,
-      [ratingName]: value,
-    });
-  }
 
   const handleTextInputChange = (event) => {
     setReviewData({
@@ -55,22 +47,6 @@ const ReviewForm = (props) => {
       <div>{getNotice} <br/>
         <form onSubmit={handleSubmit}>
           <div>Rating</div>
-            <StarRating
-              size="large"
-              name="rating"
-              rating={getReviewData.rating}
-              hoverRating={getHoverRating}
-              onStarClick={(value) => {
-                handleStarChange(value, "rating")
-              }}
-              value={getReviewData.rating}
-              onStarHover={(value) => {
-                setHoverRating(value);
-              }}
-              onMouseLeave={() => {
-                setHoverRating(undefined);
-              }}
-            />
             <label>Comment (optional):
               <textarea
                 name="comment"
