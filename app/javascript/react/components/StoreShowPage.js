@@ -5,7 +5,7 @@ import ReviewTile from "./ReviewTile"
 
 const StoreShowPage = (props) => {
   const [getStoreInfo, setStoreInfo] = useState([]);
-  const [getReviews, setReviews] = useState([]);
+  const [getReviewsData, setReviewsData] = useState([]);
   let storeId = props.match.params.id;
 
   useEffect(() => {
@@ -21,13 +21,15 @@ const StoreShowPage = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        setStoreInfo(body.store);
+        // debugger
+        setStoreInfo(body.storeData);
+        setReviewsData(body.reviewData)
         // setReviews(body.reviews)
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
 
-  // let reviewList = getReviews.map((review) => {
+  // let reviewList = getReviewsData.map((review) => {
   //   return (
   //   <ReviewTile 
   //     key={review.id} 
