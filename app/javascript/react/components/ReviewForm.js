@@ -5,7 +5,7 @@ const ReviewForm = (props) => {
   const [getReviewData, setReviewData] = useState({})
   const [getNotice, setNotice] = useState("")
 
-  let storeId = props.match.params.storeId
+  let storeId = props.match.params.id
 
   const handleTextInputChange = (event) => {
     setReviewData({
