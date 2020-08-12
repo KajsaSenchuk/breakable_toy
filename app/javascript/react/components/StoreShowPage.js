@@ -21,22 +21,20 @@ const StoreShowPage = (props) => {
       })
       .then((response) => response.json())
       .then((body) => {
-        // debugger
-        setStoreInfo(body.storeData);
-        setReviewsData(body.reviewData)
-        // setReviews(body.reviews)
+        setStoreInfo(body.store);
+        setReviewsData(body.store.reviews)
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
 
-  // let reviewList = getReviewsData.map((review) => {
-  //   return (
-  //   <ReviewTile 
-  //     key={review.id} 
-  //     props={review} 
-  //   />
-  //   );
-  // });
+  let reviewList = getReviewsData.map((review) => {
+    return (
+    <ReviewTile 
+      key={review.id} 
+      props={review} 
+    />
+    );
+  });
 
   return (
     <div>
@@ -66,7 +64,7 @@ const StoreShowPage = (props) => {
               <th>Rating</th>
             </tr>
           </thead>
-          {/* <tbody>{reviewList}</tbody> */}
+          <tbody>{reviewList}</tbody>
         </table>
     </div>   
   );

@@ -5,7 +5,7 @@ const ReviewForm = (props) => {
   const [getReviewData, setReviewData] = useState({})
   const [getNotice, setNotice] = useState("")
 
-  let storeId = props.match.params.storeId
+  let storeId = props.match.params.id
 
   const handleTextInputChange = (event) => {
     setReviewData({
@@ -57,7 +57,6 @@ const ReviewForm = (props) => {
       
             <button 
               type="submit" 
-              className="button primary" 
               value="Submit" 
               form="reviewForm"> 
               Submit Form
@@ -65,9 +64,7 @@ const ReviewForm = (props) => {
         </form>
 
         <div>
-          <Link to={{
-            pathname:`/stores/${storeId}`,
-          }} className="button primary">
+          <Link to={`/stores/${storeId}`}>
             Return to Store
           </Link>
         </div>
