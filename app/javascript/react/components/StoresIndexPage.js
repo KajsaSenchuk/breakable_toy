@@ -39,7 +39,7 @@ const StoresIndexPage = (props) => {
   });
 
   return (
-    <div>
+    <div className="index">
       <h3>Index</h3>
       <ul>{listStores}</ul>
     </div>
