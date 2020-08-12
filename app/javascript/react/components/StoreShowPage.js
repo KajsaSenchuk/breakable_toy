@@ -6,6 +6,7 @@ import ReviewTile from "./ReviewTile"
 const StoreShowPage = (props) => {
   const [getStoreInfo, setStoreInfo] = useState([]);
   const [getReviewsData, setReviewsData] = useState([]);
+
   let storeId = props.match.params.id;
 
   useEffect(() => {
@@ -31,7 +32,7 @@ const StoreShowPage = (props) => {
     return (
     <ReviewTile 
       key={review.id} 
-      props={review} 
+      data={review} 
     />
     );
   });

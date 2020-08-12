@@ -3,9 +3,9 @@ import React from "react";
 const ReviewTile = (props) => {
   return (
     <tr>
-      <td>{props.username}</td>
-      <td>{props.comment}</td>
-      <td>{props.rating}</td>
+      <td>{props.data.username}</td>
+      <td>{props.data.comment}</td>
+      <td>{props.data.rating}</td>
       <td>
         <button type="button" className="button">
           Edit
