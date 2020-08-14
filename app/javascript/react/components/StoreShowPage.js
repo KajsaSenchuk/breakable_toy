@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 import StoreShowTile from "./StoreShowTile"
-import ReviewTile from "./ReviewTile"
 
 const StoreShowPage = (props) => {
   const [getStoreInfo, setStoreInfo] = useState([]);
   const [getReviewsData, setReviewsData] = useState([]);
-
+  
   let storeId = props.match.params.id;
 
   useEffect(() => {
