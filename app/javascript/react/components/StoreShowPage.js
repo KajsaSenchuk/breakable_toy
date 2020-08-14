@@ -30,7 +30,7 @@ const StoreShowPage = (props) => {
 
   let reviewList = getReviewsData.map((review) => {
     return (
-    <ReviewTile 
+    <ReviewTile
       key={review.id} 
       data={review} 
     />

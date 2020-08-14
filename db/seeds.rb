@@ -18,8 +18,9 @@ user3 = User.create(email:"test3@test.com", username:"User3", password:"12345678
 user4 = User.create(email:"test4@test.com", username:"User4", password:"12345678")
 user5 = User.create(email:"test5@test.com", username:"User5", password:"12345678")
 
-review1 = Review.create(comment:"amazing", rating:5, store:store1, username:user1.username)
-review2 = Review.create(comment:"pretty great", rating:4, store:store1, username:user2.username)
-review3 = Review.create(comment:"cool store", rating:4, store:store2, username:user3.username)
-review4 = Review.create(comment:"neat", rating:3, store:store2, username:user4.username)
-review5 = Review.create(comment:"awesome stuff", rating:5, store:store2, username:user5.username)
+review1 = Review.create(username:user1.username, rating:5, comment:"amazing", store_id:store1.id, user_id:user1.id)
+review2 = Review.create(username:user2.username, rating:4, comment:"pretty great", store_id:store1.id, user_id:user2.id)
+review3 = Review.create(username:user3.username, rating:4, comment:"cool store", store_id:store2.id, user_id:user3.id)
+review4 = Review.create(username:user4.username, rating:3, comment:"neat", store_id:store2.id, user_id:user4.id)
+review5 = Review.create(username:user5.username, rating:5, comment:"awesome stuff", store_id:store2.id, user_id:user5.id)
+
