@@ -4,6 +4,7 @@ class Api::V1::StoresController < ApplicationController
   end
 
   def show
-    render json: Store.find(params[:id]), serializer: StoreShowSerializer
+    @store = Store.find(params[:id])
+    render json: @store, serializer: StoreShowSerializer
   end
 end

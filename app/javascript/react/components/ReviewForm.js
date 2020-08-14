@@ -44,33 +44,38 @@ const ReviewForm = (props) => {
   return (
     <div>
       <h3>Submit a New Review</h3>
-      <div>{getNotice} <br/>
-        <form onSubmit={handleSubmit}>
-          <div>Rating</div>
-            <label>Comment (optional):
-              <textarea
-                name="comment"
-                onChange={handleTextInputChange}
-                value={getReviewData.comment}
-              />
-            </label>
-      
-            <button 
-              type="submit" 
-              className="button primary" 
-              value="Submit" 
-              form="reviewForm"> 
-              Submit Form
-            </button>
-        </form>
+      <div>{getNotice}</div>
+      <br/>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Rating 1-5
+          <textarea
+            name="rating"
+            onChange={handleTextInputChange}
+            value={getReviewData.rating}
+          />
+        </label>            
+        <label>
+          Comment (optional):
+          <textarea
+            name="comment"
+            onChange={handleTextInputChange}
+            value={getReviewData.comment}
+          />
+        </label>
+    
+        <button 
+          type="submit" 
+          value="Submit" 
+          form="reviewForm"> 
+          Submit Form
+        </button>
+      </form>
 
-        <div>
-          <Link to={{
-            pathname:`/stores/${storeId}`,
-          }} className="button primary">
-            Return to Store
-          </Link>
-        </div>
+      <div>
+        <Link to={`/stores/${storeId}`}>
+          Return to Store
+        </Link>
       </div>
     </div>
   )

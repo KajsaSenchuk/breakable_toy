@@ -4,7 +4,8 @@ import StoreShowTile from "./StoreShowTile"
 
 const StoreShowPage = (props) => {
   const [getStoreInfo, setStoreInfo] = useState([]);
-
+  const [getReviewsData, setReviewsData] = useState([]);
+  
   let storeId = props.match.params.id;
 
   useEffect(() => {
@@ -21,9 +22,19 @@ const StoreShowPage = (props) => {
       .then((response) => response.json())
       .then((body) => {
         setStoreInfo(body.store);
+        setReviewsData(body.store.reviews)
       })
       .catch((error) => console.error(`Error in fetch: ${error.message}`));
   }, []);
+
+  let reviewList = getReviewsData.map((review) => {
+    return (
+    <ReviewTile
+      key={review.id} 
+      data={review} 
+    />
+    );
+  });
 
   return (
     <div>
@@ -53,6 +64,7 @@ const StoreShowPage = (props) => {
               <th>Rating</th>
             </tr>
           </thead>
+          <tbody>{reviewList}</tbody>
         </table>
     </div>   
   );

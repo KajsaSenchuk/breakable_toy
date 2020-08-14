@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   get '/stores', to: 'homes#index'
   get '/stores/:id', to: 'homes#index'
-  get '/stores/:id/reviews', to: 'homes#index'
+  get '/stores/:store_id/reviews', to: 'homes#index'
 
   namespace :api do
     namespace :v1 do
